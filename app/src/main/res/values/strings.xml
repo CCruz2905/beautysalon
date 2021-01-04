@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BeautySalon</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="unregistered">¿No estás registrado?</string>
+    <string name="sign_up">Regístrate</string>
+
 </resources>
