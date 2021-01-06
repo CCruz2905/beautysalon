@@ -27,7 +27,7 @@
             android:contentDescription="@string/login" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/editTextEmail"
             style="@style/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
 
         <EditText
             style="@style/login"
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
@@ -49,10 +49,11 @@
             android:importantForAutofill="no" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonLogin"
             style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="buttonLogin"
             android:text="@string/login" />
 
         <TextView
@@ -64,11 +65,19 @@
             android:text="@string/unregistered" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonSignUp"
             style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sign_up" />
+
+        <TextView
+            style="@style/login"
+            android:id="@+id/textViewError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/red" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

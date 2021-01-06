@@ -5,5 +5,12 @@
     <string name="login">Iniciar sesión</string>
     <string name="unregistered">¿No estás registrado?</string>
     <string name="sign_up">Regístrate</string>
+    <string name="salon_name">Charly\'s Salon</string>
 
+    <!-- Validación de formulario -->
+    <string name="error_email_password">El correo y la contraseña son obligatorios</string>
+    <string name="error_email">El correo es obligatorio</string>
+    <string name="wrong_email_password">El correo no está escrito correctamente \nLa contraseña es obligatoria</string>
+    <string name="wrong_email">El correo no está escrito correctamente</string>
+    <string name="error_password">La contraseña es obligatoria</string>
 </resources>

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.BeautySalon" parent="Theme.AppCompat">
         <item name="fontFamily">@font/roboto</item>
@@ -8,8 +8,8 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColorHint">@color/black</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
     </style>
