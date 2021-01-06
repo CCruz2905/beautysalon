@@ -9,4 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="maroon">#800000</color>
     <color name="red">#FF0000</color>
+    
+    <!-- pastel -->
+    <color name="lavender_purple">#957DAD</color>
+    <color name="pastel_violet">#D291BC</color>
+    <color name="cotton_candy">#FEC8D8</color>
+    <color name="cyber_grape">#57466D</color>
+    <color name="water">#D0E5FA</color>
+    <color name="snow">#FEF5FA</color>
+    <color name="maximum_blue_purple">#A7BAE7</color>
 </resources>

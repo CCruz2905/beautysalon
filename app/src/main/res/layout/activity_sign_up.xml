@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pastel_violet"
     tools:context=".SignUp">
 
     <ScrollView
@@ -15,10 +16,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            style="@style/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
@@ -30,7 +30,6 @@
 
             <EditText
                 android:id="@+id/editTextFirstName"
-                style="@style/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -40,7 +39,6 @@
 
             <EditText
                 android:id="@+id/editTextLastName"
-                style="@style/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -50,7 +48,6 @@
 
             <EditText
                 android:id="@+id/editTextEmailAddress"
-                style="@style/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -60,7 +57,6 @@
 
             <EditText
                 android:id="@+id/editTextPassword1"
-                style="@style/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -70,7 +66,6 @@
 
             <EditText
                 android:id="@+id/editTextPassword2"
-                style="@style/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -80,7 +75,6 @@
 
             <EditText
                 android:id="@+id/editTextPhone"
-                style="@style/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

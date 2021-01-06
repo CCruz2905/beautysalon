@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pastel_violet"
     tools:context=".MainActivity">
 
     <LinearLayout
+        style="@style/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="30dp"
-        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,34 +18,29 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            style="@style/login"
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            app:srcCompat="@drawable/ic_user"
-            android:contentDescription="@string/login" />
+            android:contentDescription="@string/login"
+            app:srcCompat="@drawable/ic_user" />
 
         <EditText
             android:id="@+id/editTextEmail"
-            style="@style/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
             android:ems="10"
             android:hint="@string/email"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
 
         <EditText
-            style="@style/login"
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
             android:ems="10"
             android:hint="@string/password"
-            android:inputType="textPassword"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/buttonLogin"
@@ -70,11 +65,9 @@
             android:text="@string/sign_up" />
 
         <TextView
-            style="@style/login"
             android:id="@+id/textViewError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
             android:textColor="@color/red" />
 
     </LinearLayout>

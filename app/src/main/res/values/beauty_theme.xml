@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Pastel" parent="Theme.MaterialComponents.Light">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/snow</item>
+        <item name="colorPrimaryVariant">@color/lavender_purple</item>
+        <item name="colorOnPrimary">@color/cyber_grape</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/water</item>
+        <item name="colorSecondaryVariant">@color/water</item>
+        <item name="colorOnSecondary">@color/cyber_grape</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textViewStyle">@style/textView</item>
+        <item name="editTextStyle">@style/editText</item>
+    </style>
+    <!-- Base text color -->
+    <style name="textView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/snow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- Base editText style -->
+    <style name="editText" parent="android:Widget.EditText">
+        <item name="android:textColor">@color/snow</item>
+        <item name="android:textColorHint">@color/snow</item>
+        <item name="backgroundTint">@color/snow</item>
+    </style>
+    <!-- Base text color -->
+    <style name="layout">
+        <item name="android:layout_margin">30dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

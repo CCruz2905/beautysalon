@@ -9,7 +9,7 @@
         android:label="@string/salon_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BeautySalon">
+        android:theme="@style/Theme.Pastel">
         <activity
             android:name=".SignUp"
             android:label="@string/sign_up"
