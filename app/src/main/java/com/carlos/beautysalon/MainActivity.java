@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Métodos privados
     // Método que valida el formulario
+
     private boolean validateForm() {
         // Error si los campos de correo y constraseña están vacíos
         if (editTextEmail.getText().toString().isEmpty() && editTextPassword.getText().toString().isEmpty()) {

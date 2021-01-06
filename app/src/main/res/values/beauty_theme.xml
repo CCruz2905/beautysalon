@@ -7,8 +7,8 @@
         <item name="colorPrimaryVariant">@color/lavender_purple</item>
         <item name="colorOnPrimary">@color/cyber_grape</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/water</item>
-        <item name="colorSecondaryVariant">@color/water</item>
+        <item name="colorSecondary">@color/cyber_grape</item>
+        <item name="colorSecondaryVariant">@color/cyber_grape</item>
         <item name="colorOnSecondary">@color/cyber_grape</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -16,10 +16,11 @@
         <item name="fontFamily">@font/roboto</item>
         <item name="android:textViewStyle">@style/textView</item>
         <item name="editTextStyle">@style/editText</item>
+        <item name="android:datePickerStyle">@style/date_picker</item>
     </style>
     <!-- Base text color -->
     <style name="textView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/snow</item>
+        <item name="android:textColor">@color/snow  </item>
         <item name="android:textSize">18sp</item>
     </style>
     <!-- Base editText style -->
@@ -32,5 +33,11 @@
     <style name="layout">
         <item name="android:layout_margin">30dp</item>
         <item name="android:gravity">center</item>
+    </style>
+    <!-- Base datepicker style -->
+    <style name="date_picker">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:minDate">01/01/1940</item>
+        <item name="android:maxDate">12/31/2010</item>
     </style>
 </resources>

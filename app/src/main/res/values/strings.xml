@@ -11,7 +11,7 @@
     <string name="sign_up">Regístrate</string>
 
     <!-- Validación de formulario -->
-    <string name="error_email_password">El correo y la contraseña son obligatorios</string>
+    <string name="error_email_password">Los campos marcados son obligatorios</string>
     <string name="error_email">El correo es obligatorio</string>
     <string name="wrong_email_password">El correo no está escrito correctamente \nLa contraseña es obligatoria</string>
     <string name="wrong_email">El correo no está escrito correctamente</string>
@@ -22,4 +22,5 @@
     <string name="last_name">Apellido (s)</string>
     <string name="phone">Teléfono</string>
     <string name="password2">Confirmar contraseña</string>
+    <string name="dob">Fecha de nacimiento</string>
 </resources>

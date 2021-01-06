@@ -47,6 +47,20 @@
                 android:inputType="textPersonName" />
 
             <EditText
+                android:id="@+id/editTextDOB"
+                style="@style/date_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:hint="@string/dob"
+                android:importantForAutofill="no"
+                android:inputType="date"
+                android:maxLines="1"
+                android:onClick="showDatePickerDialog"
+                android:focusable="false"
+                tools:ignore="KeyboardInaccessibleWidget" />
+
+            <EditText
                 android:id="@+id/editTextEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
