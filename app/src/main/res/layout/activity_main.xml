@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="30dp"
-        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +49,6 @@
 
         <Button
             android:id="@+id/buttonLogin"
-            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="buttonLogin"
@@ -66,9 +64,9 @@
 
         <Button
             android:id="@+id/buttonSignUp"
-            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="buttonSignUp"
             android:text="@string/sign_up" />
 
         <TextView
