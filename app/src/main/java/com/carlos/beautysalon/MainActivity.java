@@ -1,17 +1,17 @@
 package com.carlos.beautysalon;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
-import java.util.regex.Pattern;
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 
 /**
  * Clase para iniciar sesión, si el usuario no tiene cuenta, se puede registrar
@@ -21,12 +21,10 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Constantes
-    String RED = "red", WHITE = "white";
-
     // Campos
     public EditText editTextEmail, editTextPassword;
-    public TextView textViewError;
+
+    AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +34,23 @@ public class MainActivity extends AppCompatActivity {
         // Obteniendo los campos
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
-        textViewError = findViewById(R.id.textViewError);
 
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        // Validación correo
+        awesomeValidation.addValidation(this, R.id.editTextEmail, Patterns.EMAIL_ADDRESS, R.string.error_email);
+
+        // Validación contraseña
+        awesomeValidation.addValidation(this, R.id.editTextPassword, ".{6,}", R.string.error_password);
     }
 
     // Métodos públicos
     // Método que valida el formulario
     public void buttonLogin(View view) {
-        if (validateForm()) {
-            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        if (awesomeValidation.validate()) {
+            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -52,68 +58,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
-
-    // Métodos privados
-    // Método que valida el formulario
-
-    private boolean validateForm() {
-        // Error si los campos de correo y constraseña están vacíos
-        if (editTextEmail.getText().toString().isEmpty() && editTextPassword.getText().toString().isEmpty()) {
-            textViewError.setText(getString(R.string.error_email_password));
-            changeEditTextColor(editTextEmail, RED);
-            changeEditTextColor(editTextPassword, RED);
-            return false;
-
-        // Error si el campo correo está vacío
-        } else if (editTextEmail.getText().toString().isEmpty()) {
-            textViewError.setText(getString(R.string.error_email));
-            changeEditTextColor(editTextEmail, RED);
-            changeEditTextColor(editTextPassword, WHITE);
-            return false;
-
-        // Error si el correo está mal escrito y la contraseña vacía
-        } else if (validateEmail(editTextEmail.getText().toString()) && editTextPassword.getText().toString().isEmpty()) {
-            textViewError.setText(getString(R.string.wrong_email_password));
-            changeEditTextColor(editTextEmail, RED);
-            changeEditTextColor(editTextPassword, RED);
-            return false;
-
-        // Error si el correo está mal escrito
-        } else if (validateEmail(editTextEmail.getText().toString())) {
-            textViewError.setText(getString(R.string.wrong_email));
-            changeEditTextColor(editTextEmail, RED);
-            changeEditTextColor(editTextPassword, WHITE);
-            return false;
-
-        // Error si la contraseña está vacía
-        } else if (editTextPassword.getText().toString().isEmpty()) {
-            textViewError.setText(getString(R.string.error_password));
-            changeEditTextColor(editTextEmail, WHITE);
-            changeEditTextColor(editTextPassword, RED);
-            return false;
-
-        // Si los campos están correctos
-        } else {
-            textViewError.setText("");
-            changeEditTextColor(editTextEmail, WHITE);
-            changeEditTextColor(editTextPassword, WHITE);
-        }
-        return true;
-    }
-
-    // Método para validar el correo del usuario
-    private boolean validateEmail(String email) {
-        Pattern pattern = Patterns.EMAIL_ADDRESS;
-        return !pattern.matcher(email).matches();
-    }
-
-    // Método para cambiar el color a los campos
-    private void changeEditTextColor(EditText field, String color) {
-        if (color.equals("red")) {
-            field.setBackgroundTintList(AppCompatResources.getColorStateList(this, R.color.red));
-        } else if (color.equals("white")) {
-            field.setBackgroundTintList(AppCompatResources.getColorStateList(this, R.color.white));
-        }
-    }
-
 }

@@ -11,11 +11,12 @@
     <string name="sign_up">Regístrate</string>
 
     <!-- Validación de formulario -->
-    <string name="error_email_password">Los campos marcados son obligatorios</string>
-    <string name="error_email">El correo es obligatorio</string>
-    <string name="wrong_email_password">El correo no está escrito correctamente \nLa contraseña es obligatoria</string>
-    <string name="wrong_email">El correo no está escrito correctamente</string>
-    <string name="error_password">La contraseña es obligatoria</string>
+    <string name="error_email">Ingresa un correo válido</string>
+    <string name="error_password">Ingresa una contraseña válida\nMin. 6 caractéres</string>
+    <string name="error_name">Ingresa un nombre válido</string>
+    <string name="error_year">Ingresa una fecha válida</string>
+    <string name="wrong_password">Las contraseñas no coinciden</string>
+    <string name="error_phone">Ingresa un teléfono válido</string>
 
     <!-- Elementos de registro -->
     <string name="first_name">Nombre (s)</string>
