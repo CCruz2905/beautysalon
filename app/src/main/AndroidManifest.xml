@@ -11,9 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pastel">
         <activity
+            android:name=".PrincipalMenu"
+            android:label="@string/home"
+            android:parentActivityName=".MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".SignUp"
             android:label="@string/sign_up"
             android:parentActivityName=".MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

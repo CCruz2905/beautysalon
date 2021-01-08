@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        style="@style/layout"
+        style="@style/linear_layout_vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -44,8 +44,10 @@
 
         <Button
             android:id="@+id/buttonLogin"
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="0dp"
             android:onClick="buttonLogin"
             android:text="@string/login" />
 
@@ -59,8 +61,10 @@
 
         <Button
             android:id="@+id/buttonSignUp"
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="0dp"
             android:onClick="buttonSignUp"
             android:text="@string/sign_up" />
 

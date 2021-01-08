@@ -8,6 +8,7 @@
     tools:context=".SignUp">
 
     <ScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            style="@style/layout"
+            style="@style/linear_layout_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -56,7 +57,6 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                style="@style/date_picker"
                 android:id="@+id/editTextDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,8 +94,10 @@
 
             <Button
                 android:id="@+id/button"
+                style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="0dp"
                 android:onClick="buttonSignUp"
                 android:text="@string/sign_up" />
         </LinearLayout>

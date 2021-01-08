@@ -24,4 +24,10 @@
     <string name="phone">Teléfono</string>
     <string name="password2">Confirmar contraseña</string>
     <string name="dob">Fec. Nac. p. ej. 29/05/1998</string>
+    <string name="plan_date">Agendar cita</string>
+    <string name="cancel_date">Cancelar cita</string>
+    <string name="update_account">Editar cuenta</string>
+    <string name="exit">Salir</string>
+    <string name="home">Home</string>
+    <string name="about_me">Conoce Charly\'s Salon</string>
 </resources>

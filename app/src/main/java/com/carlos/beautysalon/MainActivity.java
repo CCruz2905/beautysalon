@@ -1,8 +1,10 @@
 package com.carlos.beautysalon;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     AwesomeValidation awesomeValidation;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
     // Método que valida el formulario
     public void buttonLogin(View view) {
         if (awesomeValidation.validate()) {
-            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, PrincipalMenu.class);
+            startActivity(intent);
         } else {
             Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
         }

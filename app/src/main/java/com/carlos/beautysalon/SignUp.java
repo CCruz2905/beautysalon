@@ -1,5 +1,6 @@
 package com.carlos.beautysalon;
 
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,17 +15,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import com.basgeekball.awesomevalidation.utility.custom.SimpleCustomValidation;
-import com.carlos.beautysalon.dialog.DatePickerFragment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+/**
+ * Clase para registrar usuario
+ * @author: Carlos Cruz
+ * @version: 1
+ */
 public class SignUp extends AppCompatActivity {
 
+    // Campos
     public EditText editTextFirstName, editTextLastName, editTextDOB, editTextEmail, editTextPassword1, editTextPassword2, editTextPhone;
 
+    // Objeto para realizar validaciones
     AwesomeValidation awesomeValidation;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -33,6 +39,7 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        // Obteniendo los campos
         editTextFirstName = findViewById(R.id.editTextFirstName);
         editTextLastName = findViewById(R.id.editTextLastName);
         editTextEmail = findViewById(R.id.editTextEmailAddress);
@@ -41,6 +48,7 @@ public class SignUp extends AppCompatActivity {
         editTextPassword2 = findViewById(R.id.editTextPassword2);
         editTextPhone = findViewById(R.id.editTextPhone);
 
+        // Variable que aplicará las validaciones
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         // Validación nombre y apellido
@@ -82,27 +90,14 @@ public class SignUp extends AppCompatActivity {
         awesomeValidation.addValidation(this, R.id.editTextPhone, RegexTemplate.TELEPHONE, R.string.error_phone);
     }
 
+    // Métodos públicos
     public void buttonSignUp(View view) {
         if (awesomeValidation.validate()) {
-            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         } else {
             Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    // Método para capturar fecha de nacimiento
-    public void showDatePickerDialog(View v) {
-        DatePickerFragment newFragment = DatePickerFragment.newInstance((datePicker, year, month, day) -> {
-            // +1 because January is zero
-            final String selectedDate = twoDigits(day) + "/" + twoDigits(month+1) + "/" + year;
-            editTextDOB.setText(selectedDate);
-        });
-
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }
-
-    // Método para ver los días y meses en 2 dígitos
-    private String twoDigits(int n) {
-        return (n<=9) ? ("0"+n) : String.valueOf(n);
     }
 }

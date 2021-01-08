@@ -16,7 +16,6 @@
         <item name="fontFamily">@font/roboto</item>
         <item name="android:textViewStyle">@style/textView</item>
         <item name="editTextStyle">@style/editText</item>
-        <item name="android:datePickerStyle">@style/date_picker</item>
     </style>
     <!-- Base text color -->
     <style name="textView" parent="Widget.AppCompat.TextView">
@@ -29,18 +28,20 @@
         <item name="android:textColorHint">@color/snow</item>
         <item name="backgroundTint">@color/snow</item>
     </style>
-    <!-- Base text color -->
-    <style name="layout">
-        <item name="android:layout_margin">30dp</item>
+    <!-- Button style -->
+    <style name="button">
+        <item name="cornerRadius">20dp</item>
+    </style>
+    <style name="home_button" parent="button">
+        <item name="android:layout_margin">10dp</item>
+    </style>
+    <!-- Base layout color -->
+    <style name="linear_layout_vertical">
+        <item name="android:layout_margin">20dp</item>
         <item name="android:gravity">center</item>
     </style>
-    <!-- Base datepicker style -->
-    <style name="date_picker">
-        <item name="android:datePickerMode">spinner</item>
-        <item name="android:minDate">01/01/1940</item>
-        <item name="android:maxDate">12/31/2010</item>
-    </style>
-    <style name="TextInputLayoutErrorStyle" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/red</item>
+    <style name="linear_layout_horizontal">
+        <item name="android:gravity">center</item>
+        <item name="backgroundColor">@color/snow</item>
     </style>
 </resources>
