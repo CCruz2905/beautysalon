@@ -40,4 +40,7 @@
         <item name="android:minDate">01/01/1940</item>
         <item name="android:maxDate">12/31/2010</item>
     </style>
+    <style name="TextInputLayoutErrorStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red</item>
+    </style>
 </resources>

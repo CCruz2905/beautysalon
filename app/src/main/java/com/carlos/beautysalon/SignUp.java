@@ -1,5 +1,6 @@
 package com.carlos.beautysalon;
 
+import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -13,7 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.basgeekball.awesomevalidation.utility.custom.SimpleCustomValidation;
 import com.carlos.beautysalon.dialog.DatePickerFragment;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class SignUp extends AppCompatActivity {
 
@@ -43,7 +49,32 @@ public class SignUp extends AppCompatActivity {
         // Validación correo
         awesomeValidation.addValidation(this, R.id.editTextEmailAddress, Patterns.EMAIL_ADDRESS, R.string.error_email);
         // Validación fecha de nacimiento
-        awesomeValidation.addValidation(this, R.id.editTextDOB, RegexTemplate.NOT_EMPTY, R.string.error_year);
+        awesomeValidation.addValidation(this, R.id.editTextDOB, input -> {
+            // check if the age is >= 16
+            try {
+                Calendar calendarBirthday = Calendar.getInstance();
+                Calendar calendarToday = Calendar.getInstance();
+                calendarBirthday.setTime(new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(input));
+                int yearOfToday = calendarToday.get(Calendar.YEAR);
+                int yearOfBirthday = calendarBirthday.get(Calendar.YEAR);
+                if (yearOfToday - yearOfBirthday > 16) {
+                    return true;
+                } else if (yearOfToday - yearOfBirthday == 16) {
+                    int monthOfToday = calendarToday.get(Calendar.MONTH);
+                    int monthOfBirthday = calendarBirthday.get(Calendar.MONTH);
+                    if (monthOfToday > monthOfBirthday) {
+                        return true;
+                    } else if (monthOfToday == monthOfBirthday) {
+                        if (calendarToday.get(Calendar.DAY_OF_MONTH) >= calendarBirthday.get(Calendar.DAY_OF_MONTH)) {
+                            return true;
+                        }
+                    }
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return false;
+        }, R.string.error_year);
         // Validación contraseña
         awesomeValidation.addValidation(this, R.id.editTextPassword1, ".{6,}", R.string.error_password);
         awesomeValidation.addValidation(this, R.id.editTextPassword2, R.id.editTextPassword1, R.string.wrong_password);

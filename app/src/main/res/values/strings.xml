@@ -14,7 +14,7 @@
     <string name="error_email">Ingresa un correo válido</string>
     <string name="error_password">Ingresa una contraseña válida\nMin. 6 caractéres</string>
     <string name="error_name">Ingresa un nombre válido</string>
-    <string name="error_year">Ingresa una fecha válida</string>
+    <string name="error_year">Ingresa una fecha válida \nLa fecha debe ser Día/Mes/Año \nEdad mínima 16</string>
     <string name="wrong_password">Las contraseñas no coinciden</string>
     <string name="error_phone">Ingresa un teléfono válido</string>
 
@@ -23,5 +23,5 @@
     <string name="last_name">Apellido (s)</string>
     <string name="phone">Teléfono</string>
     <string name="password2">Confirmar contraseña</string>
-    <string name="dob">Fecha de nacimiento</string>
+    <string name="dob">Fec. Nac. p. ej. 29/05/1998</string>
 </resources>
