@@ -1,9 +1,9 @@
 <resources>
     <!-- Elementos generales -->
     <string name="app_name">BeautySalon</string>
+    <string name="salon_name">Charly\'s Salon</string>
     <string name="email">Correo electrónico</string>
     <string name="password">Contraseña</string>
-    <string name="salon_name">Charly\'s Salon</string>
 
     <!-- Elementos de inicio de sesión -->
     <string name="login">Iniciar sesión</string>
@@ -24,10 +24,20 @@
     <string name="phone">Teléfono</string>
     <string name="password2">Confirmar contraseña</string>
     <string name="dob">Fec. Nac. p. ej. 29/05/1998</string>
+
+    <!-- Elementos Home -->
     <string name="plan_date">Agendar cita</string>
     <string name="cancel_date">Cancelar cita</string>
     <string name="update_account">Editar cuenta</string>
     <string name="exit">Salir</string>
     <string name="home">Home</string>
     <string name="about_me">Conoce Charly\'s Salon</string>
+    <string name="session_type">Tipo de sesión</string>
+
+    <!-- Elementos Agendar cita -->
+    <string name="date">Fecha</string>
+    <string name="time">Hora</string>
+
+    <!-- Error agendando cita -->
+    <string name="error_type">Selecciona una sesión</string>
 </resources>

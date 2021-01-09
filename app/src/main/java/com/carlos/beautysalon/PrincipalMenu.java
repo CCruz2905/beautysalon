@@ -3,6 +3,7 @@ package com.carlos.beautysalon;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,26 +26,13 @@ public class PrincipalMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_menu);
 
-        // Colocar fechas en spinner
-//        Calendar calendar = Calendar.getInstance();
-//        ArrayList<String> spinnerArray = new ArrayList<String>();
-//
-//        for (int i = calendar.get(calendar.DAY_OF_MONTH); i < calendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
-//            System.out.println(calendar.getTime());
-//            calendar.add(calendar.DATE, 1);
-//            spinnerArray.add(calendar.get(calendar.DAY_OF_MONTH) + "/" + "enero");
-//        }
-//
-//        spinner = findViewById(R.id.spinner);
-//        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
-//        spinner.setAdapter(spinnerArrayAdapter);
-
     }
 
     // Métodos públicos
     // Método que dirige a agendar cita
     public void buttonPlanDate(View view) {
-
+        Intent intent = new Intent(this, PlanDate.class);
+        startActivity(intent);
     }
 
     // Método que dirige a cancelar cita

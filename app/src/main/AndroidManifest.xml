@@ -11,6 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pastel">
         <activity
+            android:name=".PlanDate"
+            android:label="@string/plan_date"
+            android:parentActivityName=".PrincipalMenu">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PrincipalMenu" />
+        </activity>
+        <activity
             android:name=".PrincipalMenu"
             android:label="@string/home"
             android:parentActivityName=".MainActivity">

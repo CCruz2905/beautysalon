@@ -17,9 +17,13 @@
         <item name="android:textViewStyle">@style/textView</item>
         <item name="editTextStyle">@style/editText</item>
     </style>
+    <style name="spinner">
+        <item name="android:textColor">@color/snow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
     <!-- Base text color -->
     <style name="textView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/snow  </item>
+        <item name="android:textColor">@color/snow</item>
         <item name="android:textSize">18sp</item>
     </style>
     <!-- Base editText style -->
