@@ -37,7 +37,7 @@
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_plan_date"
                     android:contentDescription="@string/plan_date" />
@@ -45,10 +45,10 @@
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_cancel"
-                    android:contentDescription="@string/cancel_date" />
+                    android:contentDescription="@string/select_date"
+                    app:srcCompat="@drawable/ic_change" />
             </LinearLayout>
 
             <LinearLayout
@@ -60,7 +60,7 @@
                     android:id="@+id/button6"
                     style="@style/home_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="buttonPlanDate"
                     android:text="@string/plan_date" />
@@ -69,9 +69,10 @@
                     android:id="@+id/button7"
                     style="@style/home_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/cancel_date" />
+                    android:onClick="buttonCancelDate"
+                    android:text="@string/select_date" />
             </LinearLayout>
 
             <LinearLayout
@@ -82,15 +83,15 @@
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_update_user"
-                    android:contentDescription="@string/update_account" />
+                    android:contentDescription="@string/update_account"
+                    app:srcCompat="@drawable/ic_info" />
 
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_exit"
                     android:contentDescription="@string/exit" />
@@ -105,33 +106,18 @@
                     android:id="@+id/button8"
                     style="@style/home_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/update_account" />
+                    android:text="@string/about_me" />
 
                 <Button
                     android:id="@+id/button9"
                     style="@style/home_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:lines="2"
                     android:text="@string/exit" />
             </LinearLayout>
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_info"
-                android:contentDescription="@string/about_me" />
-
-            <Button
-                android:id="@+id/button4"
-                style="@style/home_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/about_me" />
 
         </LinearLayout>
     </ScrollView>

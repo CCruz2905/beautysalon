@@ -37,12 +37,8 @@ public class PrincipalMenu extends AppCompatActivity {
 
     // Método que dirige a cancelar cita
     public void buttonCancelDate(View view) {
-
-    }
-
-    // Método que dirige a configurar usuario
-    public void buttonUpdateUser(View view) {
-
+        Intent intent = new Intent(this, SelectDate.class);
+        startActivity(intent);
     }
 
     // Método que dirige a salir de la sesión

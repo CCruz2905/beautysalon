@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pastel_violet"
+    tools:context=".SelectDate">
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            style="@style/linear_layout_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="80dp"
+                android:contentDescription="@string/select_date"
+                app:srcCompat="@drawable/ic_change" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_plan_date"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spinnerSelectDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textViewEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_dates"
+                android:textAlignment="center"
+                android:textSize="40sp"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <LinearLayout
+                style="@style/home_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonUpdateDate"
+                    style="@style/home_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/update_date"
+                    android:visibility="gone"
+                    tools:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/buttonCancelDate"
+                    style="@style/home_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/cancel_date"
+                    android:visibility="gone"
+                    tools:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

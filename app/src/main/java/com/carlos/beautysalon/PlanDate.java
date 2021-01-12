@@ -4,34 +4,18 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
+import android.app.AlertDialog;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationHolder;
-import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import com.basgeekball.awesomevalidation.utility.custom.CustomErrorReset;
-import com.basgeekball.awesomevalidation.utility.custom.CustomValidation;
-import com.basgeekball.awesomevalidation.utility.custom.CustomValidationCallback;
-import com.basgeekball.awesomevalidation.utility.custom.SimpleCustomValidation;
-import com.google.common.collect.Range;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Locale;
 
 import static java.lang.String.format;
 
@@ -73,10 +57,30 @@ public class PlanDate extends AppCompatActivity {
     // Método para guardar la fecha agendada
     public void buttonSave(View view) {
         if (spinnerValidations()) {
-            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.dialog);
+            builder.setTitle(R.string.confirm_date);
+            builder.setMessage(getDialogText());
+            builder.setPositiveButton("Guardar", (dialog, which) -> {
+                // Hacer cosas aqui al hacer clic en el boton de aceptar
+                Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+            });
+            builder.setNegativeButton("Atrás", (dialog, which) -> {
+
+            });
+            builder.show();
         } else {
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private String getDialogText() {
+        String type = spinnerType.getSelectedItem().toString().trim();
+        String date = spinnerDate.getSelectedItem().toString().trim();
+        String time = spinnerTime.getSelectedItem().toString().trim();
+
+        return "Sesión: " + type + "\n" +
+                "Fecha: " + date + "\n" +
+                "Hora: " + time;
     }
 
     private boolean spinnerValidations() {

@@ -48,4 +48,9 @@
         <item name="android:gravity">center</item>
         <item name="backgroundColor">@color/snow</item>
     </style>
+    <!-- Base Dialog color -->
+    <style name="dialog" parent="Theme.AppCompat.Light.Dialog.MinWidth">
+        <item name="colorPrimary">@color/snow</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 </resources>
