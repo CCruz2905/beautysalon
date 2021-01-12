@@ -2,6 +2,7 @@ package com.carlos.beautysalon;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Build;
@@ -38,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
 
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation = new AwesomeValidation(ValidationStyle.UNDERLABEL);
+        awesomeValidation.setContext(this);
+        awesomeValidation.setUnderlabelColor(ContextCompat.getColor(this, android.R.color.holo_red_light));
 
         // Validación correo
         awesomeValidation.addValidation(this, R.id.editTextEmail, Patterns.EMAIL_ADDRESS, R.string.error_email);

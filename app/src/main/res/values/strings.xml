@@ -16,7 +16,7 @@
     <string name="error_name">Ingresa un nombre válido</string>
     <string name="error_year">Ingresa una fecha válida \nLa fecha debe ser Día/Mes/Año \nEdad mínima 16</string>
     <string name="wrong_password">Las contraseñas no coinciden</string>
-    <string name="error_phone">Ingresa un teléfono válido</string>
+    <string name="error_phone">Ingresa un teléfono válido \nDebe contener 10 números</string>
 
     <!-- Elementos de registro -->
     <string name="first_name">Nombre (s)</string>
@@ -40,4 +40,6 @@
 
     <!-- Error agendando cita -->
     <string name="error_type">Selecciona una sesión</string>
+    <string name="error_date">Selecciona una fecha</string>
+    <string name="error_time">Selecciona una hora</string>
 </resources>

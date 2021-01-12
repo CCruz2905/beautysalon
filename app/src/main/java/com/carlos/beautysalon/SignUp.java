@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -49,7 +51,9 @@ public class SignUp extends AppCompatActivity {
         editTextPhone = findViewById(R.id.editTextPhone);
 
         // Variable que aplicará las validaciones
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation = new AwesomeValidation(ValidationStyle.UNDERLABEL);
+        awesomeValidation.setContext(this);
+        awesomeValidation.setUnderlabelColor(ContextCompat.getColor(this, android.R.color.holo_red_light));
 
         // Validación nombre y apellido
         awesomeValidation.addValidation(this, R.id.editTextFirstName, RegexTemplate.NOT_EMPTY, R.string.error_name);
@@ -87,13 +91,13 @@ public class SignUp extends AppCompatActivity {
         awesomeValidation.addValidation(this, R.id.editTextPassword1, ".{6,}", R.string.error_password);
         awesomeValidation.addValidation(this, R.id.editTextPassword2, R.id.editTextPassword1, R.string.wrong_password);
         // Validación teléfono
-        awesomeValidation.addValidation(this, R.id.editTextPhone, RegexTemplate.TELEPHONE, R.string.error_phone);
+        awesomeValidation.addValidation(this, R.id.editTextPhone, ".{10,}", R.string.error_phone);
     }
 
     // Métodos públicos
     public void buttonSignUp(View view) {
         if (awesomeValidation.validate()) {
-//            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {

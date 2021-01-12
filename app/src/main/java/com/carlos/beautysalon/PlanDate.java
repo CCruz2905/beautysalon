@@ -4,21 +4,34 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationHolder;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.basgeekball.awesomevalidation.utility.custom.CustomErrorReset;
+import com.basgeekball.awesomevalidation.utility.custom.CustomValidation;
+import com.basgeekball.awesomevalidation.utility.custom.CustomValidationCallback;
+import com.basgeekball.awesomevalidation.utility.custom.SimpleCustomValidation;
+import com.google.common.collect.Range;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 import static java.lang.String.format;
 
@@ -30,6 +43,7 @@ public class PlanDate extends AppCompatActivity {
 
     // Campos
     public Spinner spinnerType, spinnerDate, spinnerTime;
+    public TextView textViewType, textViewDate, textViewTime;
 
     // Adaptador para spinner
     ArrayList<String> spinnerArray;
@@ -40,18 +54,52 @@ public class PlanDate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_date);
 
+        textViewType = findViewById(R.id.textViewType);
+        textViewDate = findViewById(R.id.textViewDate);
+        textViewTime = findViewById(R.id.textViewTime);
+
         // Colocar tipo de sesión
         fillTypes();
         // Colocar fechas en spinner
         fillDates();
         // Colocar horas en spinner
         fillTime();
+
+        // to validate with your own custom validator function, warn and clear the warning with your way
+
     }
 
     // Métodos públicos
     // Método para guardar la fecha agendada
     public void buttonSave(View view) {
+        if (spinnerValidations()) {
+            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+        }
+    }
 
+    private boolean spinnerValidations() {
+
+        if (spinnerType.getSelectedItem().toString().trim().equals("<Selecciona un tipo de sesión>")) {
+            textViewType.setVisibility(View.VISIBLE);
+        } else {
+            textViewType.setVisibility(View.GONE);
+        }
+
+        if (spinnerDate.getSelectedItem().toString().trim().equals("<Selecciona una fecha>")) {
+            textViewDate.setVisibility(View.VISIBLE);
+        } else {
+            textViewDate.setVisibility(View.GONE);
+        }
+
+        if (spinnerTime.getSelectedItem().toString().trim().equals("<Selecciona una hora>")) {
+            textViewTime.setVisibility(View.VISIBLE);
+        } else {
+            textViewTime.setVisibility(View.GONE);
+        }
+
+        return textViewType.getVisibility() != View.VISIBLE && textViewDate.getVisibility() != View.VISIBLE && textViewTime.getVisibility() != View.VISIBLE;
     }
 
     // Métodos privados
@@ -72,18 +120,6 @@ public class PlanDate extends AppCompatActivity {
         );
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         spinnerType.setAdapter(adapter);
-
-        spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                String selectedItem = spinnerType.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         /*
         spinnerType = findViewById(R.id.spinnerType);
@@ -135,7 +171,7 @@ public class PlanDate extends AppCompatActivity {
         calendar.add(Calendar.DATE, 1);
 
         while (i < calendar.getActualMaximum(Calendar.DAY_OF_MONTH)) {
-            String date = format("%02d", calendar.get(Calendar.DAY_OF_MONTH)) + " / " + month + " / " + calendar.get(Calendar.YEAR);
+            String date = format("%02d", calendar.get(Calendar.DAY_OF_MONTH)) + "/" + month + "/" + calendar.get(Calendar.YEAR);
             calendar.add(Calendar.DATE, 1);
             spinnerArray.add(date);
             i++;
@@ -150,18 +186,6 @@ public class PlanDate extends AppCompatActivity {
         );
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         spinnerDate.setAdapter(adapter);
-
-        spinnerDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                String selectedItem = spinnerDate.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         /*
         spinnerDate = findViewById(R.id.spinnerDate);
@@ -192,18 +216,6 @@ public class PlanDate extends AppCompatActivity {
         );
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         spinnerTime.setAdapter(adapter);
-
-        spinnerTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                String selectedItem = spinnerTime.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         /*
         spinnerTime = findViewById(R.id.spinnerTime);

@@ -35,7 +35,17 @@
             <Spinner
                 android:id="@+id/spinnerType"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"/>
+
+            <TextView
+                android:id="@+id/textViewType"
+                android:textColor="@color/red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/error_type"
+                android:visibility="gone"
+                tools:visibility="gone" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -46,7 +56,17 @@
             <Spinner
                 android:id="@+id/spinnerDate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"/>
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:textColor="@color/red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/error_date"
+                android:visibility="gone"
+                tools:visibility="gone" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -57,7 +77,17 @@
             <Spinner
                 android:id="@+id/spinnerTime"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"/>
+
+            <TextView
+                android:id="@+id/textViewTime"
+                android:textColor="@color/red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/error_time"
+                android:visibility="gone"
+                tools:visibility="gone" />
 
             <Button
                 android:id="@+id/button2"
