@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +19,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.carlos.beautysalon.backend.ConexionSQLiteHelper;
+import com.carlos.beautysalon.backend.utils.Utilidades;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -22,8 +30,8 @@ import static java.lang.String.format;
 public class PlanDate extends AppCompatActivity {
 
     // Constantes
-    int STARTHOUR = 9;
-    String[] SESSION_TYPE =  {"Aplicacion de pestañas", "Colorimetría del cabello", "Manicura", "Maquillaje y peinado"};
+    final int STARTHOUR = 9;
+    final String[] SESSION_TYPE =  {"Aplicacion de pestañas", "Colorimetría del cabello", "Manicura", "Maquillaje y peinado"};
 
     // Campos
     public Spinner spinnerType, spinnerDate, spinnerTime;
@@ -59,15 +67,47 @@ public class PlanDate extends AppCompatActivity {
             builder.setMessage(getDialogText());
             builder.setPositiveButton("Guardar", (dialog, which) -> {
                 // Hacer cosas aqui al hacer clic en el boton de aceptar
-                Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+                try {
+                    long resultado = insertDate();
+                    if (resultado != -1) {
+                        Intent intent = new Intent(this, PrincipalMenu.class);
+                        startActivity(intent);
+                        Toast.makeText(this, "Cita guardada correctamente", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(this, e + "", Toast.LENGTH_LONG).show();
+                }
             });
             builder.setNegativeButton("Atrás", (dialog, which) -> {
 
             });
             builder.show();
-        } else {
-            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private long insertDate() {
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        String email = sharedPref.getString(getString(R.string.email), "");
+
+        String type = spinnerType.getSelectedItem().toString().trim();
+        String date = spinnerDate.getSelectedItem().toString().trim();
+        String time = spinnerTime.getSelectedItem().toString().trim();
+
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+
+        SQLiteDatabase db = conn.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Utilidades.CAMPO_ID_EMAIL, email);
+        values.put(Utilidades.CAMPO_TIPO_SESION, type);
+        values.put(Utilidades.CAMPO_FECHA_CITA, date);
+        values.put(Utilidades.CAMPO_HORA_CITA, time);
+
+        long id = db.insert(Utilidades.TABLA_CITAS, Utilidades.CAMPO_ID_EMAIL, values);
+
+        db.close();
+
+        return id;
     }
 
     private String getDialogText() {

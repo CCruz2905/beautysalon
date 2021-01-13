@@ -23,7 +23,6 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:contentDescription="@string/sign_up"
@@ -93,7 +92,6 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/button"
                 style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

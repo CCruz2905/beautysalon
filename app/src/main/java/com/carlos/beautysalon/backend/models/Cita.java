@@ -4,11 +4,13 @@ import java.io.Serializable;
 
 public class Cita implements Serializable {
 
+    private String email;
     private String sesion;
     private String fecha;
     private String hora;
 
-    public Cita(String sesion, String fecha, String hora) {
+    public Cita(String email, String sesion, String fecha, String hora) {
+        this.email = email;
         this.sesion = sesion;
         this.fecha = fecha;
         this.hora = hora;
@@ -39,5 +41,13 @@ public class Cita implements Serializable {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

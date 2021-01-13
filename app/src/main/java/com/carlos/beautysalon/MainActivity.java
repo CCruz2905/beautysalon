@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -66,15 +68,18 @@ public class MainActivity extends AppCompatActivity {
         email = editTextEmail.getText().toString().trim();
         password = editTextPassword.getText().toString().trim();
 
-        if (awesomeValidation.validate()) {
-            if (checkEmail(email)) {
-                if (checkEmailPassword(email, password)) {
-                    Intent intent = new Intent(this, PrincipalMenu.class);
-                    startActivity(intent);
-                }
+        if (awesomeValidation.validate()) if (checkEmail(email)) {
+            if (checkEmailPassword(email, password)) {
+                SharedPreferences prefs = getSharedPreferences("Email", Context.MODE_PRIVATE);
+
+                SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(getString(R.string.email), email);
+                editor.apply();
+
+                Intent intent = new Intent(this, PrincipalMenu.class);
+                startActivity(intent);
             }
-        } else {
-            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
         }
     }
 

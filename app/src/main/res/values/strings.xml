@@ -1,6 +1,5 @@
 <resources>
     <!-- Elementos generales -->
-    <string name="app_name">BeautySalon</string>
     <string name="salon_name">Charly\'s Salon</string>
     <string name="email">Correo electrónico</string>
     <string name="password">Contraseña</string>
@@ -52,5 +51,4 @@
     <string name="try_again">Intentar de nuevo</string>
 
     <!-- Select plan date -->
-    <style name="select_date">Ver citas</style>
 </resources>

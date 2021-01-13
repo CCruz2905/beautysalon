@@ -55,4 +55,20 @@ public class Usuario implements Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    public String getFec_nac() {
+        return fec_nac;
+    }
+
+    public void setFec_nac(String fec_nac) {
+        this.fec_nac = fec_nac;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 }
