@@ -28,6 +28,7 @@ public class Utilidades {
     public static final String CAMPO_HORA_CITA = "hora_cita";
 
     public static final String CREAR_TABLA_CITAS = "CREATE TABLE " + TABLA_CITAS + " (" +
+            CAMPO_ID_EMAIL + " TEXT, " +
             CAMPO_TIPO_SESION + " TEXT, " +
             CAMPO_FECHA_CITA + " TEXT, " +
             CAMPO_HORA_CITA + " TEXT)";

@@ -17,6 +17,8 @@
     <string name="error_year">Ingresa una fecha válida \nLa fecha debe ser Día/Mes/Año \nEdad mínima 16</string>
     <string name="wrong_password">Las contraseñas no coinciden</string>
     <string name="error_phone">Ingresa un teléfono válido \nDebe contener 10 números</string>
+    <string name="email_not_found">No se encuentra la cuenta</string>
+    <string name="email_not_match">Contraseña incorrecta</string>
 
     <!-- Elementos de registro -->
     <string name="first_name">Nombre (s)</string>
@@ -47,6 +49,7 @@
     <string name="empty_dates">Aún no haz reservado cita :(</string>
     <string name="update_date">Cambiar cita</string>
     <string name="cancel_date">Cancelar cita</string>
+    <string name="try_again">Intentar de nuevo</string>
 
     <!-- Select plan date -->
     <style name="select_date">Ver citas</style>

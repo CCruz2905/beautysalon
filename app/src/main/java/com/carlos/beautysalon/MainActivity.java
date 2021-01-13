@@ -4,7 +4,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -15,6 +18,8 @@ import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.carlos.beautysalon.backend.ConexionSQLiteHelper;
+import com.carlos.beautysalon.backend.utils.Utilidades;
 
 /**
  * Clase para iniciar sesión, si el usuario no tiene cuenta, se puede registrar
@@ -28,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     public EditText editTextEmail, editTextPassword;
 
     AwesomeValidation awesomeValidation;
+    ConexionSQLiteHelper conn;
+    SQLiteDatabase db;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -48,15 +55,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Validación contraseña
         awesomeValidation.addValidation(this, R.id.editTextPassword, ".{6,}", R.string.error_password);
+
+        conn = new ConexionSQLiteHelper(getApplicationContext(),"bd_usuarios",null,1);
     }
 
     // Métodos públicos
     // Método que valida el formulario
     public void buttonLogin(View view) {
+        String email, password;
+        email = editTextEmail.getText().toString().trim();
+        password = editTextPassword.getText().toString().trim();
+
         if (awesomeValidation.validate()) {
-//            Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, PrincipalMenu.class);
-            startActivity(intent);
+            if (checkEmail(email)) {
+                if (checkEmailPassword(email, password)) {
+                    Intent intent = new Intent(this, PrincipalMenu.class);
+                    startActivity(intent);
+                }
+            }
         } else {
             Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
         }
@@ -65,5 +81,84 @@ public class MainActivity extends AppCompatActivity {
     public void buttonSignUp(View view) {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
+    }
+
+    public Boolean checkEmail(String email) {
+        SQLiteDatabase db=conn.getReadableDatabase();
+        String[] parametros = { email };
+        String[] campos = { Utilidades.CAMPO_ID_EMAIL };
+
+        try {
+            // Select correo electrónico from usuario where correo electrónico =?
+            Cursor cursor = db.query(Utilidades.TABLA_USUARIO,
+                    campos,
+                    Utilidades.CAMPO_ID_EMAIL + " = ? ",
+                    parametros,
+                    null,
+                    null,
+                    null);
+            cursor.moveToFirst();
+            cursor.close();
+
+            if (cursor.getCount() > 0) {
+
+                return true;
+            } else {
+
+                editTextPassword.setText("");
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.dialog);
+                builder.setTitle(R.string.email_not_found);
+                builder.setMessage(email + " no coincide con ninguna cuenta existente. Puedes crear una cuenta para acceder.");
+                builder.setNegativeButton(R.string.try_again, (dialog, which) -> {
+
+                });
+                builder.setPositiveButton(R.string.sign_up, (dialog, which) -> {
+                    // Hacer cosas aqui al hacer clic en el boton de aceptar
+                    Intent intent = new Intent(this, SignUp.class);
+                    startActivity(intent);
+                });
+                builder.show();
+            }
+        } catch (Exception e) {
+
+            Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
+        }
+
+        return false;
+    }
+
+    public Boolean checkEmailPassword(String email, String password) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        try {
+            // Select correo electrónico from usuario where correo electrónico =?
+            Cursor cursor = db.rawQuery("Select " + Utilidades.CAMPO_ID_EMAIL + ", " + Utilidades.CAMPO_PASSWORD +
+                    " from " + Utilidades.TABLA_USUARIO
+                    + " where " + Utilidades.CAMPO_ID_EMAIL + " = ?  and " + Utilidades.CAMPO_PASSWORD + "= ?",
+                    new String[] { email, password });
+
+            if (cursor.getCount() > 0) {
+                return true;
+
+            } else {
+
+                editTextPassword.setText("");
+                cursor.close();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.dialog);
+                builder.setTitle(R.string.email_not_match);
+                builder.setMessage("La contraseña no coincide con la cuenta registrada.");
+                builder.setNegativeButton(R.string.try_again, (dialog, which) -> {
+
+                });
+                builder.show();
+            }
+        } catch (Exception e) {
+
+            Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
+        }
+
+        return false;
     }
 }

@@ -24,4 +24,5 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Utilidades.TABLA_CITAS);
         onCreate(db);
     }
+
 }

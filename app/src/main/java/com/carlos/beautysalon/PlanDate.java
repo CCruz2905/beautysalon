@@ -48,9 +48,6 @@ public class PlanDate extends AppCompatActivity {
         fillDates();
         // Colocar horas en spinner
         fillTime();
-
-        // to validate with your own custom validator function, warn and clear the warning with your way
-
     }
 
     // Métodos públicos

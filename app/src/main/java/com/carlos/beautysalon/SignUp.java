@@ -122,11 +122,11 @@ public class SignUp extends AppCompatActivity {
     private long insertUser() {
         // insert into usuario (email, password, nombre, apellido, fec_nac, telefono) values ('carloscruzg295@gmail.com', 'contraseña', 'Carlos','Cruz', '29/05/1998', '8442347661')
 
-        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
-        SQLiteDatabase db=conn.getWritableDatabase();
+        SQLiteDatabase db = conn.getWritableDatabase();
 
-        ContentValues values=new ContentValues();
+        ContentValues values = new ContentValues();
         values.put(Utilidades.CAMPO_ID_EMAIL, editTextEmail.getText().toString());
         values.put(Utilidades.CAMPO_PASSWORD, editTextPassword1.getText().toString());
         values.put(Utilidades.CAMPO_NOMBRE, editTextFirstName.getText().toString());
