@@ -30,15 +30,6 @@
                 app:srcCompat="@drawable/ic_sign_up" />
 
             <EditText
-                android:id="@+id/editTextEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/email"
-                android:importantForAutofill="no"
-                android:inputType="textEmailAddress" />
-
-            <EditText
                 android:id="@+id/editTextFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,6 +57,24 @@
                 android:inputType="date" />
 
             <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/phone"
+                android:importantForAutofill="no"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/editTextEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/email"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress" />
+
+            <EditText
                 android:id="@+id/editTextPassword1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,15 +91,6 @@
                 android:hint="@string/password2"
                 android:importantForAutofill="no"
                 android:inputType="textPassword" />
-
-            <EditText
-                android:id="@+id/editTextPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/phone"
-                android:importantForAutofill="no"
-                android:inputType="phone" />
 
             <Button
                 android:id="@+id/button"
