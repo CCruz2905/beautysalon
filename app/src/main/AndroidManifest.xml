@@ -20,8 +20,8 @@
                 android:value=".PrincipalMenu" />
         </activity>
         <activity
-            android:name=".PlanDate"
-            android:label="@string/plan_date"
+            android:name=".ScheduleDate"
+            android:label="@string/schedule_date"
             android:parentActivityName=".PrincipalMenu">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->

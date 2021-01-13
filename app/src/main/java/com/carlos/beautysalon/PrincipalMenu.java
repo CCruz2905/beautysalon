@@ -4,14 +4,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
-import java.util.ArrayList;
 
 /**
  * Clase que muestra el menú principal para usuarios registrados
@@ -31,7 +26,7 @@ public class PrincipalMenu extends AppCompatActivity {
     // Métodos públicos
     // Método que dirige a agendar cita
     public void buttonPlanDate(View view) {
-        Intent intent = new Intent(this, PlanDate.class);
+        Intent intent = new Intent(this, ScheduleDate.class);
         startActivity(intent);
     }
 

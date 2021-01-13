@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pastel_violet"
-    tools:context=".PlanDate">
+    tools:context=".ScheduleDate">
 
     <ScrollView
         android:fillViewport="true"
@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="80dp"
-                android:contentDescription="@string/plan_date"
+                android:contentDescription="@string/schedule_date"
                 app:srcCompat="@drawable/ic_plan_date" />
 
             <TextView
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="buttonSave"
-                android:text="@string/plan_date" />
+                android:text="@string/schedule_date" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

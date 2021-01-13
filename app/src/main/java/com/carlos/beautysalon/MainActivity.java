@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (awesomeValidation.validate()) if (checkEmail(email)) {
             if (checkEmailPassword(email, password)) {
-                SharedPreferences prefs = getSharedPreferences("Email", Context.MODE_PRIVATE);
-
                 SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString(getString(R.string.email), email);
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Boolean checkEmail(String email) {
-        SQLiteDatabase db=conn.getReadableDatabase();
+        db = conn.getReadableDatabase();
         String[] parametros = { email };
         String[] campos = { Utilidades.CAMPO_ID_EMAIL };
 

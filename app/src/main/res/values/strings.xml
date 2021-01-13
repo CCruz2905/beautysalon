@@ -27,7 +27,7 @@
     <string name="dob">Fec. Nac. p. ej. 29/05/1998</string>
 
     <!-- Elementos Home -->
-    <string name="plan_date">Agendar cita</string>
+    <string name="schedule_date">Agendar cita</string>
     <string name="select_date">Ver citas</string>
     <string name="update_account">Editar cuenta</string>
     <string name="exit">Salir</string>
@@ -44,11 +44,9 @@
     <string name="error_date">Debes seleccionar una fecha</string>
     <string name="error_time">Debes seleccionar una hora</string>
     <string name="confirm_date">¿Guardar cita?</string>
-    <string name="select_plan_date">Selecciona una cita</string>
+    <string name="select_schedule_date">Selecciona una cita</string>
     <string name="empty_dates">Aún no haz reservado cita :(</string>
     <string name="update_date">Cambiar cita</string>
     <string name="cancel_date">Cancelar cita</string>
     <string name="try_again">Intentar de nuevo</string>
-
-    <!-- Select plan date -->
 </resources>

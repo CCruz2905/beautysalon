@@ -38,7 +38,7 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_plan_date"
-                    android:contentDescription="@string/plan_date" />
+                    android:contentDescription="@string/schedule_date" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="buttonPlanDate"
-                    android:text="@string/plan_date" />
+                    android:text="@string/schedule_date" />
 
                 <Button
                     style="@style/home_button"

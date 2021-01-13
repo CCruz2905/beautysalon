@@ -29,7 +29,7 @@
                 android:id="@+id/textViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/select_plan_date"
+                android:text="@string/select_schedule_date"
                 android:visibility="gone"
                 tools:visibility="gone" />
 

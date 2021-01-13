@@ -25,9 +25,10 @@ import com.carlos.beautysalon.backend.utils.Utilidades;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.carlos.beautysalon.R.layout.custom_spinner;
 import static java.lang.String.format;
 
-public class PlanDate extends AppCompatActivity {
+public class ScheduleDate extends AppCompatActivity {
 
     // Constantes
     final int STARTHOUR = 9;
@@ -156,7 +157,7 @@ public class PlanDate extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
-                R.layout.custom_spinner,
+                custom_spinner,
                 spinnerArray
         );
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
@@ -222,7 +223,7 @@ public class PlanDate extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
-                R.layout.custom_spinner,
+                custom_spinner,
                 spinnerArray
         );
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
@@ -252,7 +253,7 @@ public class PlanDate extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
-                R.layout.custom_spinner,
+                custom_spinner,
                 spinnerArray
         );
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
