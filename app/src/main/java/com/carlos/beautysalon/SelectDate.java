@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.carlos.beautysalon.backend.ConexionSQLiteHelper;
 import com.carlos.beautysalon.backend.models.Cita;
@@ -77,8 +78,9 @@ public class SelectDate extends AppCompatActivity {
         Cita cita;
         citasList = new ArrayList<>();
 
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = this.getSharedPreferences("correo_electronico", Context.MODE_PRIVATE);
         String email = sharedPref.getString(getString(R.string.email), "");
+
         String[] parametros = { email };
         String[] campos = { Utilidades.CAMPO_TIPO_SESION, Utilidades.CAMPO_FECHA_CITA, Utilidades.CAMPO_HORA_CITA };
 
@@ -104,12 +106,11 @@ public class SelectDate extends AppCompatActivity {
                     Log.i("Hora", cita.getHora());
 
                     citasList.add(cita);
-
-                    cursor.close();
                     
                     getList();
 
                 }
+                cursor.close();
                 return true;
             }
         } catch (Exception e) {

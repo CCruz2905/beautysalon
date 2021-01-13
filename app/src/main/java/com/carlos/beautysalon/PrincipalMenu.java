@@ -3,10 +3,15 @@ package com.carlos.beautysalon;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Clase que muestra el menú principal para usuarios registrados
@@ -15,12 +20,21 @@ import android.view.View;
  */
 public class PrincipalMenu extends AppCompatActivity {
 
+    public TextView textViewName;
+
+    @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_menu);
 
+        SharedPreferences sharedPref = this.getSharedPreferences("nombre", Context.MODE_PRIVATE);
+        String nombre = sharedPref.getString(getString(R.string.first_name), "");
+
+        textViewName = findViewById(R.id.textViewName);
+
+        textViewName.setText("Hola " + nombre);
     }
 
     // Métodos públicos

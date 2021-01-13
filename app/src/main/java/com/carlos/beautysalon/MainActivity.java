@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (awesomeValidation.validate()) if (checkEmail(email)) {
             if (checkEmailPassword(email, password)) {
-                SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences sharedPref = this.getSharedPreferences("correo_electronico", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString(getString(R.string.email), email);
                 editor.apply();
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     public Boolean checkEmail(String email) {
         db = conn.getReadableDatabase();
         String[] parametros = { email };
-        String[] campos = { Utilidades.CAMPO_ID_EMAIL };
+        String[] campos = { Utilidades.CAMPO_NOMBRE };
 
         try {
             // Select correo electrónico from usuario where correo electrónico =?
@@ -100,11 +100,16 @@ public class MainActivity extends AppCompatActivity {
                     null,
                     null,
                     null);
-            cursor.moveToFirst();
-            cursor.close();
 
             if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
 
+                SharedPreferences sharedPref = this.getSharedPreferences("nombre", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(getString(R.string.first_name), cursor.getString(0));
+                editor.apply();
+
+                cursor.close();
                 return true;
             } else {
 

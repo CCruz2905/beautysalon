@@ -87,7 +87,7 @@ public class ScheduleDate extends AppCompatActivity {
     }
 
     private long insertDate() {
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = this.getSharedPreferences("correo_electronico", Context.MODE_PRIVATE);
         String email = sharedPref.getString(getString(R.string.email), "");
 
         String type = spinnerType.getSelectedItem().toString().trim();
