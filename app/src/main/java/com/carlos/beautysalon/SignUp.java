@@ -1,5 +1,6 @@
 package com.carlos.beautysalon;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.carlos.beautysalon.backend.ConexionSQLiteHelper;
 import com.carlos.beautysalon.backend.utils.Utilidades;
+import com.carlos.beautysalon.dialog.DatePickerFragment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,6 +57,11 @@ public class SignUp extends AppCompatActivity {
         editTextPassword2 = findViewById(R.id.editTextPassword2);
         editTextPhone = findViewById(R.id.editTextPhone);
 
+        addValidations();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void addValidations() {
         // Variable que aplicará las validaciones
         awesomeValidation = new AwesomeValidation(ValidationStyle.UNDERLABEL);
         awesomeValidation.setContext(this);
@@ -139,5 +147,19 @@ public class SignUp extends AppCompatActivity {
         db.close();
 
         return id;
+    }
+
+    public void showDatePickerDialog(View v) {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance((datePicker, year, month, day) -> {
+            // +1 because January is zero
+            final String selectedDate = twoDigits(day) + "/" + twoDigits(month + 1) + "/" + year;
+            editTextDOB.setText(selectedDate);
+        });
+
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    private String twoDigits(int n) {
+        return (n<=9) ? ("0"+n) : String.valueOf(n);
     }
 }

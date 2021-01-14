@@ -50,10 +50,14 @@
                 android:id="@+id/editTextDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:clickable="true"
+                android:focusable="false"
                 android:hint="@string/dob"
                 android:importantForAutofill="no"
-                android:inputType="date" />
+                android:inputType="date"
+                android:maxLines="1"
+                android:onClick="showDatePickerDialog"
+                tools:ignore="KeyboardInaccessibleWidget" />
 
             <EditText
                 android:id="@+id/editTextPhone"
