@@ -11,9 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pastel">
         <activity
+            android:name=".Info"
+            android:label="@string/about_me"
+            android:parentActivityName=".PrincipalMenu">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PrincipalMenu" />
+        </activity>
+        <activity
             android:name=".SelectDate"
             android:label="@string/select_date"
             android:parentActivityName=".PrincipalMenu">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

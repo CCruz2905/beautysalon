@@ -107,6 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:onClick="buttonAboutMe"
                     android:text="@string/about_me" />
 
                 <Button
@@ -114,6 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:onClick="buttonExit"
                     android:text="@string/exit" />
             </LinearLayout>
 

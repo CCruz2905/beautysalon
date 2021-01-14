@@ -52,11 +52,18 @@ public class PrincipalMenu extends AppCompatActivity {
 
     // Método que dirige a salir de la sesión
     public void buttonExit(View view) {
+        SharedPreferences sharedPref = this.getSharedPreferences("correo_electronico", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.clear();
+        editor.apply();
 
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     // Método que dirige a la información del salón
     public void buttonAboutMe(View view) {
-
+        Intent intent = new Intent(this, Info.class);
+        startActivity(intent);
     }
 }

@@ -51,8 +51,19 @@
     <string name="try_again">Intentar de nuevo</string>
     <string name="date_schedule_date">Fecha que se realizó la cita</string>
 
-    <string name="are_sure">¿Estás seguro?</string>
+    <string name="are_sure">¿Cancelar cita?</string>
     <string name="delete">La cita se cancelará y se perderá el lugar</string>
     <string name="confirm">Confirmar</string>
     <string name="cancel">Cancelar</string>
+    <string name="visit_us">Visitanos!</string>
+    <string name="location">Blvd. Venustiano Carranza, Privada Tecnológico 2400, 25280 Saltillo, Coah.</string>
+    <string name="made_by">App realizada por Carlos Cruz</string>
+    <string name="icons_thanks">Los iconos se obtuvieron gracias a:</string>
+    <string-array name="icon">
+        <item>Créditos de los iconos</item>
+        <item>Icon made by Freepik from www.flaticon.com</item>
+        <item>Icon made by icoongeek26 from www.flaticon.com</item>
+        <item>Icon made by Alfredo Hernandez from www.flaticon.com</item>
+        <item>Icon made by Nikita Golubev from www.flaticon.com</item>
+    </string-array>
 </resources>
