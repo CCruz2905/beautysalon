@@ -45,7 +45,7 @@ public class ScheduleDate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plan_date);
+        setContentView(R.layout.activity_schedule_date);
 
         textViewType = findViewById(R.id.textViewType);
         textViewDate = findViewById(R.id.textViewDate);
@@ -74,6 +74,8 @@ public class ScheduleDate extends AppCompatActivity {
                         Intent intent = new Intent(this, PrincipalMenu.class);
                         startActivity(intent);
                         Toast.makeText(this, "Cita guardada correctamente", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "Ya existe una cita reservada a esa fecha y hora", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     Toast.makeText(this, e + "", Toast.LENGTH_LONG).show();
@@ -91,8 +93,7 @@ public class ScheduleDate extends AppCompatActivity {
         String email = sharedPref.getString(getString(R.string.email), "");
 
         String type = spinnerType.getSelectedItem().toString().trim();
-        String date = spinnerDate.getSelectedItem().toString().trim();
-        String time = spinnerTime.getSelectedItem().toString().trim();
+        String date = spinnerDate.getSelectedItem().toString().trim() + " " + spinnerTime.getSelectedItem().toString().trim();
 
         ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
@@ -102,7 +103,6 @@ public class ScheduleDate extends AppCompatActivity {
         values.put(Utilidades.CAMPO_ID_EMAIL, email);
         values.put(Utilidades.CAMPO_TIPO_SESION, type);
         values.put(Utilidades.CAMPO_FECHA_CITA, date);
-        values.put(Utilidades.CAMPO_HORA_CITA, time);
 
         long id = db.insert(Utilidades.TABLA_CITAS, Utilidades.CAMPO_ID_EMAIL, values);
 
@@ -179,41 +179,13 @@ public class ScheduleDate extends AppCompatActivity {
 
         spinnerArray.add("<Selecciona una fecha>");
 
-        String month = "";
         int monthNumber = calendar.get(Calendar.MONTH);
-
-        switch (monthNumber) {
-            case 0: month = "enero";
-                break;
-            case 1: month = "febrero";
-                break;
-            case 2: month = "marzo";
-                break;
-            case 3: month = "abril";
-                break;
-            case 4: month = "mayo";
-                break;
-            case 5: month = "junio";
-                break;
-            case 6: month = "julio";
-                break;
-            case 7: month = "agosto";
-                break;
-            case 8: month = "septiembre";
-                break;
-            case 9: month = "octubre";
-                break;
-            case 10: month = "noviembre";
-                break;
-            case 11: month = "diciembre";
-                break;
-        }
 
         int i = calendar.get(Calendar.DAY_OF_MONTH);
         calendar.add(Calendar.DATE, 1);
 
         while (i < calendar.getActualMaximum(Calendar.DAY_OF_MONTH)) {
-            String date = format("%02d", calendar.get(Calendar.DAY_OF_MONTH)) + "/" + month + "/" + calendar.get(Calendar.YEAR);
+            String date = twoDigits(calendar.get(Calendar.DAY_OF_MONTH)) + "/" + twoDigits(monthNumber + 1) + "/" + calendar.get(Calendar.YEAR);
             calendar.add(Calendar.DATE, 1);
             spinnerArray.add(date);
             i++;
@@ -264,5 +236,9 @@ public class ScheduleDate extends AppCompatActivity {
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
         spinnerTime.setAdapter(spinnerArrayAdapter);
         */
+    }
+
+    private String twoDigits(int n) {
+        return (n<=9) ? ("0"+n) : String.valueOf(n);
     }
 }

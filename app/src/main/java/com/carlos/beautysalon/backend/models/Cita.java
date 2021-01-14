@@ -7,13 +7,13 @@ public class Cita implements Serializable {
     private String email;
     private String sesion;
     private String fecha;
-    private String hora;
+    private String fecha_agenda;
 
-    public Cita(String email, String sesion, String fecha, String hora) {
+    public Cita(String email, String sesion, String fecha, String fecha_agenda) {
         this.email = email;
         this.sesion = sesion;
         this.fecha = fecha;
-        this.hora = hora;
+        this.fecha_agenda = fecha_agenda;
     }
 
     public Cita() {
@@ -35,19 +35,19 @@ public class Cita implements Serializable {
         this.fecha = fecha;
     }
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFecha_agenda() {
+        return fecha_agenda;
+    }
+
+    public void setFecha_agenda(String fecha_agenda) {
+        this.fecha_agenda = fecha_agenda;
     }
 }

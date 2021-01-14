@@ -49,4 +49,10 @@
     <string name="update_date">Cambiar cita</string>
     <string name="cancel_date">Cancelar cita</string>
     <string name="try_again">Intentar de nuevo</string>
+    <string name="date_schedule_date">Fecha que se realizó la cita</string>
+
+    <string name="are_sure">¿Estás seguro?</string>
+    <string name="delete">La cita se cancelará y se perderá el lugar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
 </resources>
